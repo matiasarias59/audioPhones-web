@@ -4,11 +4,13 @@ const apiKey = "?key=AIzaSyBz6fhNgPKZmf3Kye1WUmTe-4PSS0WrJbI";
 const range = "DB!A3:U705";
 const url = "https://sheets.googleapis.com/v4/spreadsheets/1HLcMR4l8bOGMbD2F25m0mk5NFXkmmRxTjTqwdDkbNIc/values/";
 const catalogue = [];
-const iphone = [];
 const itemList = document.getElementById("itemList");
+
+const iphone = [];
 const brand_list = document.getElementById("brand_list");
 const categories_list = document.getElementById("categories_list");
 const subFamily_list = document.getElementById("subFamily_list");
+
 
 //---------------------------------------------------
 
@@ -176,5 +178,3 @@ const traerSamsung = () => {
         createItemCard(item, itemList);
     }
 }
-
-
