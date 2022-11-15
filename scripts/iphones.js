@@ -1,54 +1,42 @@
-const apiKey = "?key=AIzaSyBz6fhNgPKZmf3Kye1WUmTe-4PSS0WrJbI";
-const range = "DB!A3:U705";
-const url = "https://sheets.googleapis.com/v4/spreadsheets/1HLcMR4l8bOGMbD2F25m0mk5NFXkmmRxTjTqwdDkbNIc/values/";
+import {getItemsJson, generateCatalogue, filtrarItems, createItemsCards, apiKey, range, url} from "../main.js"
 const catalogue = [];
 const itemList = document.getElementById("itemList");
+const itemList2 = document.getElementById("itemList2");
+const itemList3 = document.getElementById("itemList3");
+const itemList4 = document.getElementById("itemList4");
 
-
-const getItemsJson = async (url) => {
-    const res = await fetch (url);
-    const data = await res.json();
-    const items = data.values;
-    
-    for (let i= 1; i< items.length; i++){
-        const itemTemplate = {};
-        const keys = items[0];
-        for (const key of keys) {
-            itemTemplate[key] = items[i][keys.indexOf(key)];
-        }
-        if (itemTemplate.publicar == 'TRUE' && itemTemplate.cantidad > 0){
-            catalogue.push(itemTemplate);
-        }
-    }
-    console.log(catalogue);
-    traerItems(catalogue);
-}
-getItemsJson(url+range+apiKey);
-
-const filterFunc = (item) => {
-    return (item["marca"]=="APPLE" && item["familia"]=="CELULARES")
+const filterFuncNew = (item) => {
+    return (item["marca"]=="APPLE" && item["subFamilia"]=="NUEVO")
 }
 
-const traerItems = (items) => {
-    const itemsFiltrado = items.filter((item)=>{return (item["marca"]=="APPLE" && item["familia"]=="CELULARES")});
-    console.log(itemsFiltrado)
-    for (const item of itemsFiltrado) {
-        createItemCard(item, itemList); 
-    }
+const filterFuncActive = (item) => {
+    return (item["marca"]=="APPLE" && item["subFamilia"]=="ACTIVO")
 }
 
-const createItemCard = (item, list) =>{
-    const itemForList = document.createElement('div')
-        itemForList.innerHTML=`
-        <h3 class="item_tittle">${item.marca} ${item.modelo}</h3>
-        <img class="item_img" src=${item.urlPic} alt="Foto Producto">
-        <p class="item_desc">${item.descripcion}</p>
-        <p class="item_cod">${item.codModelo}</p>
-        <p class="item_color">Color: ${item.color}</p>
-        <p class="item_price">${item.mayorDol}</p>
-        <p class="item_stock">Stock: ${item.cantidad}</p>`;
-        itemForList.classList.add("item_card")
-        list.appendChild(itemForList); 
+const filterFuncSwap = (item) => {
+    return (item["marca"]=="APPLE" && item["subFamilia"]=="SWAP")
+}
 
+const filterFuncUsed = (item) => {
+    return (item["marca"]=="APPLE" && item["subFamilia"]=="USADO")
+}
+
+
+const generatePage =async (asyncFunc, url) =>{
+    const items = await asyncFunc (url)
+    generateCatalogue(items, catalogue);
+    const newIphones = await filtrarItems(catalogue, filterFuncNew);
+    const activeIphones = await filtrarItems(catalogue, filterFuncActive);
+    const swapIphones = await filtrarItems(catalogue, filterFuncSwap);
+    const usedIphones = await filtrarItems(catalogue, filterFuncUsed);
+
+    createItemsCards(newIphones, itemList);
+    createItemsCards(activeIphones, itemList2);
+    createItemsCards(swapIphones, itemList3);
+    createItemsCards(usedIphones, itemList4);
 
 }
+
+generatePage(getItemsJson, url+range+apiKey)
+
+

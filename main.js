@@ -1,64 +1,33 @@
-const getDataBtn = document.getElementById("getDataBtn");
-const getDataBtn2 = document.getElementById("getDataBtn2");
-const apiKey = "?key=AIzaSyBz6fhNgPKZmf3Kye1WUmTe-4PSS0WrJbI";
-const range = "DB!A3:U705";
-const url = "https://sheets.googleapis.com/v4/spreadsheets/1HLcMR4l8bOGMbD2F25m0mk5NFXkmmRxTjTqwdDkbNIc/values/";
+//const getDataBtn = document.getElementById("getDataBtn");
+//const getDataBtn2 = document.getElementById("getDataBtn2");
+export const apiKey = "?key=AIzaSyBz6fhNgPKZmf3Kye1WUmTe-4PSS0WrJbI";
+export const range = "DB!A3:U705";
+export const url = "https://sheets.googleapis.com/v4/spreadsheets/1HLcMR4l8bOGMbD2F25m0mk5NFXkmmRxTjTqwdDkbNIc/values/";
 const catalogue = [];
-const itemList = document.getElementById("itemList");
-
-const iphone = [];
-const brand_list = document.getElementById("brand_list");
-const categories_list = document.getElementById("categories_list");
-const subFamily_list = document.getElementById("subFamily_list");
+//const itemList = document.getElementById("itemList");
 
 
-//---------------------------------------------------
-
-/* const criteriosFiltro = {
-    iphones: item.marca == 'APPLE' && item.familia == 'CELULARES' ,
-    celulares_samsung: item.marca == 'SAMSUNG' && item.familia == 'CELULARES' ,
-    xiaomi_realme_motorola: "",
-    apple: "",
-    wiwu:"",
-    satechi_baseus: "",
-
-}
- */
-
-//---------------------------------------------------
-
-const getItemsJson = async (url) => {
+export const getItemsJson = async (url) => {
     const res = await fetch (url);
     const data = await res.json();
     const items = data.values;
-    
-    for (let i= 1; i< items.length; i++){
+    return (items) 
+}
+
+// getItemsJson(url+range+apiKey);
+
+export const generateCatalogue = (fromArr, toArr) => {
+    for (let i = 1; i < fromArr.length; i++) {
         const itemTemplate = {};
-        const keys = items[0];
+        const keys = fromArr[0];
         for (const key of keys) {
-            itemTemplate[key] = items[i][keys.indexOf(key)];
+            itemTemplate[key] = fromArr[i][keys.indexOf(key)];
         }
-        if (itemTemplate.publicar == 'TRUE' && itemTemplate.cantidad > 0){
-            catalogue.push(itemTemplate);
+        if (itemTemplate.publicar == 'TRUE' && itemTemplate.cantidad > 0) {
+            toArr.push(itemTemplate);
         }
     }
-    console.log(catalogue);
-    traerItems(catalogue);
-
-    //getBrandList(catalogue);
-    //getCategoriesList(catalogue);
-
-    //getMenuItemList(catalogue, "marca");
-    //getMenuItemList(catalogue, "familia");
-  
-    /* generateMenuList(brand_list, "marca");
-    generateMenuList(categories_list, "familia");
-    generateMenuList(subFamily_list, "subFamilia"); */
-
 }
-getItemsJson(url+range+apiKey);
-
-
 
 
 /* const filtrarItems = (item) => {
@@ -66,9 +35,9 @@ getItemsJson(url+range+apiKey);
 }
  */
 
-const createItemCard = (item, list) =>{
+export const itemsToList = (item, list) => {
     const itemForList = document.createElement('div')
-        itemForList.innerHTML=`
+    itemForList.innerHTML = `
         <h3 class="item_tittle">${item.marca} ${item.modelo}</h3>
         <img class="item_img" src=${item.urlPic} alt="Foto Producto">
         <p class="item_desc">${item.descripcion}</p>
@@ -76,18 +45,22 @@ const createItemCard = (item, list) =>{
         <p class="item_color">Color: ${item.color}</p>
         <p class="item_price">${item.mayorDol}</p>
         <p class="item_stock">Stock: ${item.cantidad}</p>`;
-        itemForList.classList.add("item_card")
-        list.appendChild(itemForList); 
+    itemForList.classList.add("item_card")
+    list.appendChild(itemForList);
 
 
 }
 
-
-const traerItems = (items) => {
-    //const items = catalogue.filter(filtrarItems);
+export const createItemsCards = (items, itemList) => {
     for (const item of items) {
-        createItemCard(item, itemList); 
+        itemsToList(item, itemList);
     }
+}
+
+export const filtrarItems = (items, func) => {
+    const itemsFiltrado = items.filter(item => func(item));
+    console.log(itemsFiltrado)
+    return (itemsFiltrado);
 }
 
 /* const getBrandList = (arr) => {
@@ -107,8 +80,8 @@ const getCategoriesList = (arr) => {
     //console.log(categoriesList);
     return categoriesList;
 }     */
-    
-const getMenuItemList = (arr, key) =>{
+
+/* const getMenuItemList = (arr, key) =>{
     const list = [];
     for (const item of arr){
         !list.includes(item[key]) && list.push(item[key]);
@@ -129,9 +102,9 @@ const generateMenuList = (container, key) => {
         container.appendChild(itemList);
     }
 
-}
+} */
 
-const filterParams = () => {
+/* const filterParams = () => {
     //const list = document.getElementsByClassName("filter_checkbox");
     const list = document.querySelectorAll("#nav_list input[type=checkbox]")
     const arrList = [...list];
@@ -151,9 +124,11 @@ const filterParams = () => {
 
    // && params.familia.includes(item.familia) && params.subFamilia.includes(item.subFamilia));
     
-}
+} */
 
-getDataBtn.addEventListener("click",()=>{traerIphones()});
+
+
+/* getDataBtn.addEventListener("click",()=>{traerIphones()});
 getDataBtn2.addEventListener("click",()=>{traerSamsung()});
 //---------------------------------------------------------
 const traerIphones = () => {
@@ -177,4 +152,4 @@ const traerSamsung = () => {
     for (const item of items) {
         createItemCard(item, itemList);
     }
-}
+} */
