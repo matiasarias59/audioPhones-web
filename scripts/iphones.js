@@ -6,7 +6,7 @@ const itemList3 = document.getElementById("itemList3");
 const itemList4 = document.getElementById("itemList4");
 
 const filterFuncNew = (item) => {
-    return (item["marca"]=="APPLE" && (item["subFamilia"]=="NUEVO" ||"CPO" ))
+    return (item["marca"]=="APPLE" && (item["subFamilia"]=="NUEVO" || item["subFamilia"]=="CPO" ))
 }
 
 const filterFuncActive = (item) => {

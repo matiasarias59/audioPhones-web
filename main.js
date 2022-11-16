@@ -1,10 +1,8 @@
-//const getDataBtn = document.getElementById("getDataBtn");
-//const getDataBtn2 = document.getElementById("getDataBtn2");
+
 export const apiKey = "?key=AIzaSyBz6fhNgPKZmf3Kye1WUmTe-4PSS0WrJbI";
 export const range = "DB!A3:V";
 export const url = "https://sheets.googleapis.com/v4/spreadsheets/1HLcMR4l8bOGMbD2F25m0mk5NFXkmmRxTjTqwdDkbNIc/values/";
-const catalogue = [];
-//const itemList = document.getElementById("itemList");
+
 
 
 export const getItemsJson = async (url) => {
@@ -13,8 +11,6 @@ export const getItemsJson = async (url) => {
     const items = data.values;
     return (items) 
 }
-
-// getItemsJson(url+range+apiKey);
 
 export const generateCatalogue = (fromArr, toArr) => {
     for (let i = 1; i < fromArr.length; i++) {
@@ -29,11 +25,6 @@ export const generateCatalogue = (fromArr, toArr) => {
     }
 }
 
-
-/* const filtrarItems = (item) => {
-    return (item['marca'] == 'XIAOMI');
-}
- */
 const determinePrice = (item) => {
     if (item.consultarPrecio == "TRUE") {
         return "Consultar";
