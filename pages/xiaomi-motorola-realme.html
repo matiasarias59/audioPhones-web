@@ -1,4 +1,5 @@
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,56 +7,94 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
-    <title>Lista de Precios Online</title>
+    <title>Celulares Xiaomi - Realme - Motorola | Audio Phones</title>
 </head>
+
 <body>
     <header>
-        <div class="logo">
-            Logo
-            <img src="" alt="">
+        <div class="logoContainer">
+            <a href="../index.html">
+                <img class="logo" src="../src/img/logo-ap-white.png" alt="">
+            </a>
         </div>
         <nav id="nav">
             <ul id="nav_list">
-                <a href="./iphones.html"><li>Iphones</li></a>
-                <a href="./celulares-samsung.html"><li>Celulares Samsung</li></a>
-                <a href="#"><li>Celulares Xiaomi | Motorola | Realme</li></a>
-                <a href="#"><li>Apple</li></a>
-                <a href="#"><li>Wiwu</li></a>
-                <a href="#"><li>Satechi | Baseus</li></a>
-                <a href="#"><li>Computacion</li></a>
-                <a href="#"><li>Fotografia</li></a>
-                <a href="#"><li>Audio</li></a>
-                <a href="#"><li>Video</li></a>
-                <a href="#"><li>Vapers</li></a>
-                <a href="#"><li>Smartwatchs</li></a>
-                <a href="#"><li>Hogar | Varios</li></a>
-                <a href="#"><li></li></a>
+                <a href="./iphones.html">
+                    <li>Iphones</li>
+                </a>
+                <a href="./celulares-samsung.html">
+                    <li>Celulares Samsung</li>
+                </a>
+                <a href="#">
+                    <li>Celulares Xiaomi | Motorola | Realme</li>
+                </a>
+                <a href="./apple.html">
+                    <li>Apple</li>
+                </a>
+                <a href="./wiwu.html">
+                    <li>Wiwu</li>
+                </a>
+                <a href="./satechi-baseus.html">
+                    <li>Satechi | Baseus</li>
+                </a>
+                <a href="./computacion.html">
+                    <li>Computacion</li>
+                </a>
+                <a href="./fotografia.html">
+                    <li>Fotografia</li>
+                </a>
+                <a href="./audio.html">
+                    <li>Audio</li>
+                </a>
+                <a href="./video.html">
+                    <li>Video</li>
+                </a>
+                <a href="./vapers.html">
+                    <li>Vapers</li>
+                </a>
+                <a href="./smartwatch.html">
+                    <li>Smartwatchs</li>
+                </a>
+                <a href="./hogar-varios.html">
+                    <li>Hogar | Varios</li>
+                </a>
+                </a>
             </ul>
         </nav>
     </header>
-
-    <h1>Lista de precios</h1>
-    <div id="itemListContainer">
-        <div id="itemList">
-            
-
-
-        </div>
-        <!-- <table id="itemTable">
-           
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            
-        </table> -->
-    </div>
-
-    <script src="../main.js"></script>
+    <main>
+        <!-- PONER LISTA CON LINKS DE ACCESO RAPIDO PARA EVITAR SCROLL -->
+        <!-- <h1>Lista de precios</h1> -->
+        <div id="itemListContainer">
+            <div class="tittleListContainer">
+                <h2 class="tittleList">CELULARES IMPORTADOS (DUAL SIM) XIAOMI</h2>
+            </div>
     
+            <div class="itemList" id="itemList">
+            </div>
+
+            <div class="tittleListContainer">
+                <h2 class="tittleList">CELULARES IMPORTADOS (DUAL SIM) REALME</h2>
+            </div>
+    
+            <div class="itemList" id="itemList2">
+            </div>
+
+            <div class="tittleListContainer">
+                <h2 class="tittleList">CELULARES IMPORTADOS (DUAL SIM) MOTOROLA - ENERGIZER</h2>
+            </div>
+    
+            <div class="itemList" id="itemList3">
+            </div>
+            
+        </div>
+    </main>
+
+    <script type="module" src="../scripts/xiaomi-motorola-realme.js"></script>
+
+
 </body>
+
 </html>
