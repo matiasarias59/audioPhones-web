@@ -9,12 +9,22 @@ html {
 
 }
 
+a{
+    text-decoration: none;;
+}
+
 header{
     background-color: red;
-    height: 10vh;
+    height: fit-content;
     max-width: 1200px;
     padding: 1rem 1rem 0rem 1rem;
     margin: auto;
+}
+
+.logoContainer{
+    margin: 0 auto 2rem auto;
+    width: fit-content;
+
 }
 
 .logo{
@@ -25,6 +35,22 @@ header{
     list-style-type: none;
     display: flex;
     flex-direction: row;
+    margin: auto;
+}
+
+#nav_list li {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin: 1rem;
+}
+
+#nav_list li:hover {
+    background-color: rgba(255, 255, 255, 0.432);
+    font-size: 1.7rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
 }
 
 h1{
@@ -37,13 +63,24 @@ h1{
     max-width: 1200px;
 }
 
+.tittleListContainer{
+    background-color: red;
+    padding: 1rem;
+    margin: 3rem 0 3rem 0;
+}
+
+.tittleList{
+    font-size: 3rem;
+    text-align: center;
+    color: white;
+}
 
 .itemList{
     margin: auto;
     max-width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr ;
-    gap: 1rem;
+    gap: 2rem;
     /* height: 100%; */
 }
 
@@ -52,15 +89,58 @@ h1{
     grid-template-columns: auto;
     justify-content: center;
     align-content: center;
-    border: 1px solid red;
-    border-radius: 1rem;
-    padding: 1rem;
+    border: 1px solid rgb(207, 207, 207);
+    box-shadow: 0.1rem 0.1rem 0.6rem rgba(155, 155, 155, 0.5) ;
+    padding: 1rem;   
+}
 
-    
+.item_card:hover{
+    background-color: rgb(240, 240, 240);
 }
 
 
 .item_img{
-    width: 150px;
+    width: 200px;
     margin: auto;
+}
+
+.item_tittle{
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center
+}
+.item_desc{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 1rem 0 1rem 0;
+    
+}
+.item_cod{
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-align: right;
+}
+.item_color{
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-align: right;
+}
+.item_price{
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    background-color: red;
+    color: white;
+    padding: 0.2rem;
+    margin-bottom: 1rem;
+    
+}
+.item_stock{
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: right;
 }
