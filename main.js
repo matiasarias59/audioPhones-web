@@ -1,7 +1,7 @@
 //const getDataBtn = document.getElementById("getDataBtn");
 //const getDataBtn2 = document.getElementById("getDataBtn2");
 export const apiKey = "?key=AIzaSyBz6fhNgPKZmf3Kye1WUmTe-4PSS0WrJbI";
-export const range = "DB!A3:U705";
+export const range = "DB!A3:V";
 export const url = "https://sheets.googleapis.com/v4/spreadsheets/1HLcMR4l8bOGMbD2F25m0mk5NFXkmmRxTjTqwdDkbNIc/values/";
 const catalogue = [];
 //const itemList = document.getElementById("itemList");
@@ -34,16 +34,24 @@ export const generateCatalogue = (fromArr, toArr) => {
     return (item['marca'] == 'XIAOMI');
 }
  */
+const determinePrice = (item) => {
+    if (item.consultarPrecio == "TRUE") {
+        return "Consultar";
+    }else{
+        return (item.tipoCambio == "OFICIAL"? (`$ ${item.mayorPes}`) : (`USD ${item.mayorDol}`)) 
+    }
+}
 
 export const itemsToList = (item, list) => {
     const itemForList = document.createElement('div')
+    const price = determinePrice(item);
     itemForList.innerHTML = `
         <h3 class="item_tittle">${item.marca} ${item.modelo}</h3>
         <img class="item_img" src=${item.urlPic} alt="Foto Producto">
         <p class="item_desc">${item.descripcion}</p>
         <p class="item_cod">${item.codModelo}</p>
         <p class="item_color">Color: ${item.color}</p>
-        <p class="item_price">${item.mayorDol}</p>
+        <p class="item_price">${price}</p>
         <p class="item_stock">Stock: ${item.cantidad}</p>`;
     itemForList.classList.add("item_card")
     list.appendChild(itemForList);
