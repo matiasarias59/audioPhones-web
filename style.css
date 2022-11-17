@@ -19,6 +19,8 @@ header{
     max-width: 1200px;
     padding: 1rem 1rem 0rem 1rem;
     margin: auto;
+    position: sticky;
+    top: 0;
 }
 
 .logoContainer{
@@ -29,6 +31,38 @@ header{
 
 .logo{
     width: 10rem;   
+}
+
+h1{
+    color: rgb(255, 0, 0);
+    font-size: 8rem;
+    font-weight: 200;
+    text-align: center;
+}
+
+#mainMenu{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 3rem auto 3rem auto;
+    padding: 2rem;
+    border: 1px solid rgb(207, 207, 207);
+    box-shadow: 0.1rem 0.1rem 0.6rem rgba(155, 155, 155, 0.5) ;
+    justify-content: center;
+
+}
+
+#mainMenu li {
+    color: rgb(255, 0, 0);
+    font-size: 5rem;
+    font-weight: 300;
+    text-align: center;
+    margin: 1.5rem;
+    padding: 2rem;
+    border: 1px solid rgb(207, 207, 207);
+    box-shadow: 0.1rem 0.1rem 0.6rem rgba(155, 155, 155, 0.5) ;
+    
 }
 
 #nav_list{
