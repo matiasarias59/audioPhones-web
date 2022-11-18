@@ -1,8 +1,9 @@
 
-export const apiKey = "?key=AIzaSyBz6fhNgPKZmf3Kye1WUmTe-4PSS0WrJbI";
-export const range = "DB!A3:V";
-export const url = "https://sheets.googleapis.com/v4/spreadsheets/1HLcMR4l8bOGMbD2F25m0mk5NFXkmmRxTjTqwdDkbNIc/values/";
+export const apiKey = "?key=AIzaSyCNjdPDGXC6zms7YbYknyLuSIbqbJKXgKA";
+export const range = "data!A1:R";
+export const url = "https://sheets.googleapis.com/v4/spreadsheets/1t2igaddsZ8cPNsmsucG4Gyhtv3OIQkTDSKuxoybacCw/values/";
 
+const urlDrive = "http://drive.google.com/uc?export=view&id="
 
 
 export const getItemsJson = async (url) => {
@@ -38,7 +39,7 @@ export const itemsToList = (item, list) => {
     const price = determinePrice(item);
     itemForList.innerHTML = `
         <h3 class="item_tittle">${item.marca} ${item.modelo}</h3>
-        <img class="item_img" src=${item.urlPic} alt="Foto Producto">
+        <img class="item_img" src= ${urlDrive+item.urlPic} alt="Foto Producto">
         <p class="item_desc">${item.descripcion}</p>
         <p class="item_cod">${item.codModelo}</p>
         <p class="item_color">Color: ${item.color}</p>
