@@ -59,7 +59,7 @@ export const createItemsCards = (items, itemList) => {
 
 export const filtrarItems = (items, func) => {
     const itemsFiltrado = items.filter(item => func(item));
-    console.log(itemsFiltrado)
+    //console.log(itemsFiltrado)
     return (itemsFiltrado);
 }
 
