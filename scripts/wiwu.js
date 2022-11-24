@@ -1,4 +1,7 @@
-import {getItemsJson, generateCatalogue, filtrarItems, createItemsCards, apiKey, range, url} from "../main.js"
+import {getItemsJson, generateCatalogue, filtrarItems, createItemsCards, apiKey, range, url, navBar} from "../main.js"
+
+navBar(); 
+
 const catalogue = [];
 const itemList = document.getElementById("itemList");
 

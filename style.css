@@ -16,11 +16,14 @@ a{
 header{
     background-color: red;
     height: fit-content;
+    max-height: 100vh;
     max-width: 1200px;
-    padding: 1rem 1rem 0rem 1rem;
+    padding: 1rem 1rem 0.2rem 1rem;
     margin: auto;
     position: sticky;
     top: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .logoContainer{
@@ -69,26 +72,60 @@ h1{
     scale: 1.1;
 }
 
-#nav_list{
+
+
+.list__item{
+    list-style: none;
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+}
+
+.list__item--click{
+    cursor: pointer;
+}
+
+
+.arrow .list__arrow{
+    transform: rotate(90deg);
+}
+
+.list__arrow{
+    margin-left: auto;
+    transition: transform .3s;
+}
+
+.list__show{
+    text-align: left;
+    width: fit-content;
+    margin-left: 2rem;
+    border-left: 2px solid #ffffff;
+    list-style: none;
+    transition: height .4s;
+    height: 0;
+}
+
+.list__inside{
+    text-align: left;
+    padding: 0.5rem;
+}
+
+/* #nav_list{
     list-style-type: none;
     display: flex;
     flex-direction: row;
     margin: auto;
-}
+} */
 
 #nav_list li {
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 300;
-    text-align: center;
-    margin: 1rem;
+    margin: 2rem;
 }
 
-#nav_list li:hover {
+.list__inside:hover {
     background-color: rgba(255, 255, 255, 0.432);
-    font-size: 1.7rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
 }
 
 h1{
@@ -183,3 +220,10 @@ h1{
     font-weight: 300;
     text-align: right;
 } 
+
+
+@media screen and (max-width: 480px) {
+    body {
+      background-color: lightgreen;
+    }
+  }
