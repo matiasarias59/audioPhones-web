@@ -34,15 +34,22 @@ const determinePrice = (item) => {
     }
 }
 
+const isUsed = (item) => {
+    let link = item.subFamilia=="USADO"? `<a class="item_linkFotos" href=${item.observaciones} target="_blank"> Ver Fotos</a>` : ""
+    return link
+}
+
 export const itemsToList = (item, list) => {
     const itemForList = document.createElement('div')
     const price = determinePrice(item);
+    const linkFotos = isUsed(item);
     itemForList.innerHTML = `
         <h3 class="item_tittle">${item.marca} ${item.modelo}</h3>
         <img class="item_img" src= ${urlDrive+item.urlPic} alt="Foto Producto">
         <p class="item_desc">${item.descripcion}</p>
         <p class="item_cod">${item.codModelo}</p>
         <p class="item_color">Color: ${item.color}</p>
+        ${linkFotos}
         <p class="item_price">${price}</p>
         <p class="item_stock">Stock: ${item.cantidad}</p>`;
     itemForList.classList.add("item_card")
