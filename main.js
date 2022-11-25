@@ -4,7 +4,7 @@ export const range = "data!A1:R";
 export const url = "https://sheets.googleapis.com/v4/spreadsheets/1t2igaddsZ8cPNsmsucG4Gyhtv3OIQkTDSKuxoybacCw/values/";
 
 const urlDrive = "http://drive.google.com/uc?export=view&id="
-
+const urlNoPic = "http://drive.google.com/uc?export=view&id=15TgfoemRVkmz7JcfZXtrwC2Hcw7GlhwP"
 
 export const getItemsJson = async (url) => {
     const res = await fetch (url);
@@ -43,9 +43,10 @@ export const itemsToList = (item, list) => {
     const itemForList = document.createElement('div')
     const price = determinePrice(item);
     const linkFotos = isUsed(item);
+    console.log(item.urlPic)
     itemForList.innerHTML = `
         <h3 class="item_tittle">${item.marca} ${item.modelo}</h3>
-        <img class="item_img" src= ${urlDrive+item.urlPic} alt="Foto Producto">
+        <img class="item_img" src= ${item.urlPic? urlDrive+item.urlPic : urlNoPic  } alt="Foto Producto">
         <p class="item_desc">${item.descripcion}</p>
         <p class="item_cod">${item.codModelo}</p>
         <p class="item_color">Color: ${item.color}</p>
