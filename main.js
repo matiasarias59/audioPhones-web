@@ -43,7 +43,7 @@ export const itemsToList = (item, list) => {
     const itemForList = document.createElement('div')
     const price = determinePrice(item);
     const linkFotos = isUsed(item);
-    console.log(item.urlPic)
+   // console.log(item.urlPic)
     itemForList.innerHTML = `
         <h3 class="item_tittle">${item.marca} ${item.modelo}</h3>
         <img class="item_img" src= ${item.urlPic? urlDrive+item.urlPic : urlNoPic  } alt="Foto Producto">
@@ -88,7 +88,7 @@ export const navBar = () => {
             }
 
             menu.style.height = `${height}px`;
-            console.log("click")
+           // console.log("click")
         })
     });
 }
