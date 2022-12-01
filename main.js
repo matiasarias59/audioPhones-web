@@ -3,8 +3,8 @@ export const apiKey = "?key=AIzaSyCNjdPDGXC6zms7YbYknyLuSIbqbJKXgKA";
 export const range = "data!A1:R";
 export const url = "https://sheets.googleapis.com/v4/spreadsheets/1t2igaddsZ8cPNsmsucG4Gyhtv3OIQkTDSKuxoybacCw/values/";
 
-const urlDrive = "http://drive.google.com/uc?export=view&id="
-const urlNoPic = "http://drive.google.com/uc?export=view&id=15TgfoemRVkmz7JcfZXtrwC2Hcw7GlhwP"
+const urlDrive = "../src/img/products/"
+const urlNoPic = "../src/img/products/image-not-found-ap.jpg"
 
 export const getItemsJson = async (url) => {
     const res = await fetch (url);

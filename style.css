@@ -22,7 +22,7 @@ header{
     margin: auto;
     position: sticky;
     top: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
