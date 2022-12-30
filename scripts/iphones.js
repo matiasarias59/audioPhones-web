@@ -1,4 +1,4 @@
-import {getItemsJson, generateCatalogue, filtrarItems, createItemsCards, apiKey, range, url, navBar} from "../main.js"
+import {getItemsJson, generateCatalogue, filtrarItems, createItemsCards, apiKey, range, url, navBar, alertDolar} from "../main.js"
 
 navBar(); 
 
@@ -40,6 +40,6 @@ const generatePage =async (asyncFunc, url) =>{
 
 }
 
-generatePage(getItemsJson, url+range+apiKey)
+generatePage(getItemsJson, url+range+apiKey);
 
-
+alertDolar();

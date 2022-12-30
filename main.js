@@ -92,6 +92,19 @@ export const navBar = () => {
         })
     });
 }
+
+export const alertDolar = () => {
+
+    Swal.fire({
+        title: 'Atención',
+        html: `<p>RECORDAR VENIR CON BILLETES SIN MARCAS Y EN BUEN ESTADO</p> 
+        </p>⛔ BILLETES MANCHADOS O CARA CHICA  SE APLICA DIRECTAMENTE 3% RECARGO, SIN EXCEPCION⛔</p>`,
+        icon: 'info',
+        confirmButtonText: 'Aceptar',
+      })
+    
+
+}
 /* const getBrandList = (arr) => {
         const brandList = [];
         for (const item of arr) {

@@ -1,6 +1,7 @@
-import {getItemsJson, generateCatalogue, filtrarItems, createItemsCards, apiKey, range, url, navBar} from "../main.js"
-
+import {getItemsJson, generateCatalogue, filtrarItems, createItemsCards, apiKey, range, url, navBar, alertDolar} from "../main.js";
 navBar(); 
+
+
 
 const catalogue = [];
 const itemList = document.getElementById("itemList");
@@ -69,4 +70,6 @@ const generatePage =async (asyncFunc, url) =>{
 
 }
 
-generatePage(getItemsJson, url+range+apiKey)
+generatePage(getItemsJson, url+range+apiKey);
+
+alertDolar();
